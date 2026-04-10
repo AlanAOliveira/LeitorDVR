@@ -19,6 +19,7 @@
     <p id="backNumber">BACK:back</p>
     <p id="endereco">ADRESS:endereco</p>
     <p id="console">console:</p>
+
     <script>
 
         pns = [
@@ -8622,8 +8623,6 @@
         console.log = function (message) {
             document.getElementById("console").innerText += message + '\n';
         }
-
-
 
         function teste() {
             document.getElementById("result").innerText = "PN: " + readpartnumber(document.getElementById("partNumberInput").value);

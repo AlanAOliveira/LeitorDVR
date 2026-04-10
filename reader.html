@@ -50,6 +50,7 @@
     <div class="container">
         <input type="text" id="partNumberInput">
         <button type="button" onclick="atualisarLeitura()">Update</button>
+        <p id="test"></p>
         <p>Partnumber</p>
         <p id="Partnumber">####</p>
         <p>Backnumber</p>
@@ -8656,9 +8657,13 @@
             }
         ]
 
+        function atualisarLeitura() {
+            document.getElementById("test").innerText = document.getElementById("partNumberInput").value;
+        }
+
         function pnByBack(texto) {
-            var pn = "N/PN"
-            for (let i = 0; i < pns.length; i++) {
+            pn = "N/PN"
+            for (i = 0; i < pns.length; i++) {
                 if (pns[i].BackNumber == texto) {
                     pn = pns[i].PartNumber
                     break
@@ -8668,14 +8673,12 @@
         }
 
         function readpartnumber(texto) {
-            alert(`Texto recebido: ${texto}`)
             if (texto.length == 4) {
                 texto = pnByBack(texto);
             }
 
 
             texto = texto.toUpperCase()
-            alert(`Texto uppercase: ${texto}`)
             regras = [["Back", 4, 1, 4, 4],
             ["TKM - India", 96, 16, 30, 14],
             ["TKM - India", 95, 16, 30, 14],
@@ -8698,11 +8701,11 @@
             ["Tshusho - China", 14, 0, 11, 4],
             ["Tshusho - Japão", 14, 0, 11, 14],
             ["Tshusho - México", 12, 0, 11]]
-            var check = 0
+            check = 0
             newregra = ["Vazio", 0, 0, 0]
             partnumber = ""
 
-            for (let i = 0; i < regras.length; i++) {
+            for (i = 0; i < regras.length; i++) {
                 if (regras[i][0] == texto.length) {
                     newregra = regras[i]
                     console.log(newregra[0])
@@ -8748,9 +8751,9 @@
         }
 
         function getBack(partnumber) {
-            var back = "N/Back"
+            back = "N/Back"
 
-            for (let i = 0; i < pns.length; i++) {
+            for (i = 0; i < pns.length; i++) {
                 if (pns[i].PartNumber === partnumber) {
                     back = pns[i].BackNumber
                     break
@@ -8760,9 +8763,9 @@
         }
 
         function getAdress(partnumber) {
-            var address = "N/Address"
+            address = "N/Address"
 
-            for (let i = 0; i < pns.length; i++) {
+            for (i = 0; i < pns.length; i++) {
                 if (pns[i].PartNumber === partnumber) {
                     address = pns[i].address
                     break
@@ -8771,25 +8774,7 @@
             return address
         }
 
-        function atualisarLeitura() {
-            alert("Atualizando leitura...")
-            document.getElementById("Partnumber").innerText = "####";
-            document.getElementById("Back").innerText = "####";
-            document.getElementById("Endereco").innerText = "####";
-            var partNumber = document.getElementById("partNumberInput").value;
-            var partNumber = readpartnumber(partNumber);
-            document.getElementById("Partnu mber").innerText = partNumber;
-            document.getElementById("Back").innerText = getBack(partnumber);
-            document.getElementById("Endereco").innerText = getAdress(partNumber);
-            document.getElementById("partNumberInput").value = "";
-        }
-/*
-        document.getElementById("partNumberInput").addEventListener("keyup", function (event) {
-            if (event.key === "Enter") {
-                atualisarLeitura();
-            }
-        });
- */   </script>
+    </script>
 </body>
 
 
