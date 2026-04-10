@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="teste()">Teste</button>
+    <p id="result"></p>
+    <script>
+        
+        function teste() {
+             document.getElementById("result").innerText = "Teste";
+        }
+
+        function getAdress(partNumber) {
+            // Simulate a database lookup
+            const database = {
+                "12345": "Aisle 3, Shelf B",
+                "67890": "Aisle 1, Shelf A",
+                "54321": "Aisle 2, Shelf C"
+            };
+            return database[partNumber] || "Address not found";
+        }
+    </script>
+
+</body>
+
+</html>
