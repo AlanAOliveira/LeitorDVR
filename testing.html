@@ -14,7 +14,7 @@
 
 <body>
     <input type="text" value="" id="partNumberInput">
-    <button onfocus="teste()" onclick="teste()">Find</button>
+    <button onfocus="teste()">Find</button>
     <p id="result">PN:pn</p>
     <p id="backNumber">BACK:back</p>
     <p id="endereco">ADRESS:endereco</p>
@@ -8634,7 +8634,24 @@
             document.getElementById("partNumberInput").focus();
         }
 
+        function findPNbyBack(back) {
+            pn = "N/PN"
+            for (i = 0; i < pns.length; i++) {
+                if (pns[i].BackNumber == back) {
+                    pn = pns[i].PartNumber
+                    break
+                }
+            }
+            return pn;
+
+        }
+
         function readpartnumber(texto) {
+
+            if (texto.length == 4) {
+                texto = findPNbyBack(texto)
+            }
+
             regras = [["Back", 4, 1, 4, 4],
             ["TKM - India", 96, 16, 30, 14],
             ["TKM - India", 95, 16, 30, 14],
@@ -8656,7 +8673,8 @@
             ["TME TK - Bélgica", 14, 0, 14, 14],
             ["Tshusho - China", 14, 0, 11, 14],
             ["Tshusho - Japão", 14, 0, 11, 14],
-            ["Tshusho - México", 12, 0, 11]]
+            ["Tshusho - México", 12, 0, 11],
+            ["TMMIN - Indonesia", 94, 19, 31, 12]]
             check = 0
             newregra = ["Vazio", 0, 0, 0]
             partnumber = ""
