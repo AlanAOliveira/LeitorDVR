@@ -18,7 +18,7 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                font-size: 45px;
+                font-size: 35px;
             }
         }
 
@@ -10118,10 +10118,12 @@
                 var partNumber = readpartnumber(partNumber);
                 document.getElementById("Partnumber").innerText = partNumber;
                 document.getElementById("Back").innerText = getBack(partnumber);
-                address = getAdress(partNumber);
+                var address = getAdress(partNumber);
                 document.getElementById("Endereco").innerText = getAdress(partNumber);
                 document.getElementById("partNumberInput").value = "";
-                document.getElementById("etiqueta").innerHTML = "<span style='font-size: 20px;'>Back: </span>" + getBack(partNumber) + "<br> <span style='font-size: 20px;'>Endereço: </span>" + getAdress(partNumber);
+                document.getElementById("etiqueta").innerHTML = `<span style='font-size: 18px;'>PartNumber: </span> <span style='font-size: 18px;'>${partNumber}</span>
+                <br><span style='font-size: 20px;'>Back: </span> ${getBack(partNumber)} 
+                <br> <span style='font-size: 20px;'>Endereço: </span>${getAdress(partNumber)}`;
                 if (address != "N/Address") {
                     print();
                 }
